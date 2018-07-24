@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>登录界面</title>
+		<link href="css/login.css" rel="stylesheet" type="text/css" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+		<canvas  id="backstar"></canvas>
+		<div id="loginBox" class="login_box">
+			<form class="login_form" action="/login" method="post">
+				<div class="form_item">
+					<h1>LINK</h1>
+				</div>
+				<div class="form_item">
+					<input placeholder="用户名" class="form_input" name="usercode" id="usercode" value=""/>
+				</div>
+				<div class="form_item">
+					<input placeholder="密码" class="form_input" type="text" name="password" id="password" value=""/>
+				</div>
+				<div class="form_text"><a herf="/signin">忘记密码</a></div>
+				<div class="form_button">
+					<button class="btn btn-primary btn-block" data-loading-text="登陆中......">登陆</button>
+				</div>
+				<div class="form_item">
+					<a herf="/signin">立即注册 →</a>
+				</div>
+			</form>
+		</div>
+	</body>
+
+</html>
