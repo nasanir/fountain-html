@@ -6,27 +6,54 @@
 		<title></title>
 		<link href="css/login.css" rel="stylesheet" type="text/css" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/unit/unit.js"></script>
 	</head>
 
+	<script>
+		window.onload = function() {
+			var dataMap = {
+				'title': 'title',
+				'context': 'context'
+			};
+			var con = $("#container");
+			con.append(createPanel("container", 1, dataMap));
+
+		}
+	</script>
+
 	<body>
-		<div class="container">
+		<div class="container" id="container">
 			<div class="panel panel-primary ">
+
 				<div class="panel-heading">
-					<h3 class="panel-title">
-					<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+					<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+						<h3 class="panel-title">
+					
 						标题
-					</a></h3>
+					</h3>
+					</a>
 				</div>
 
-				 <div id="collapseTwo" class="panel-collapse collapse">
+				<div id="collapseTwo" class="panel-collapse collapse">
 					<div class="panel-body ">
-						<p>
-							<button type="button" class="btn btn-default btn-sm">
+						<div class="row">
+							<div class="col-sm-1">
+								<p>
+									<button type="button" class="btn btn-default btn-sm">
           				<span class="glyphicon glyphicon-plus"></span>添加
        				</button>
-						</p>
+								</p>
+							</div>
+
+							<div class="col-sm-1">
+								<p>
+									<button style="color: rgb(224, 22, 6);" type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-minus"></span>删除
+        </button> </p>
+							</div>
+						</div>
 
 						<div class="well well-lg">您好，我在大的 Well 中！</div>
 
