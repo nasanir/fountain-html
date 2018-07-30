@@ -8,32 +8,92 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/unit/utils.js"></script>
 		<script src="js/unit/unit.js"></script>
+		<script src="js/unit/menus.js"></script>
+		
 	</head>
 
 	<script>
 		window.onload = function() {
 			var dataMap = {
-				'title': 'title',
-				'context': 'context'
+				"title": "第一个项目",
+				"context": "承包商功能导入的卡，两人人员卡重复，测试手持机刷卡时，提示承包商人员明细表没数据，删掉一个人人员卡数据后，手持机初始化，刷卡，提示无效卡用户，附件是手持机端的日志。（卡数据在卡表中都有）家里测试下，看看能不能复现这个问题。正式环境上出现的。逻辑一：一人一张卡，可以换卡；逻辑二：人退厂的同时人员卡失效，一级教育和车间级教育失效；逻辑三：不换承包商单位情况下可以重复接受教育，在最后一次教育流程结束前，之前的教育记录不失效（保留最后一次有效培训记录）。"
 			};
+
+			var dataMap1 = {
+				'title': '人员入厂登记',
+				'context': '导入的特种作业证中如果有空格，也不会去校验是否已匹配，提示导入成功，该问题影响流程，会导致这个人一直入不了厂，不能作业。请尽快修改！'
+			};
+
+			var dataMap2 = {
+				'title': '施工项目',
+				'context': 'SCP-11965'
+			};
+
+			var dataMap3 = {
+				'title': '作业许可app',
+				'context': '登录慢，权限更新慢，重复登陆也慢'
+			};
+
+			var dataMap4 = {
+				'title': '车间级教育',
+				'context': '同一厂，承包商人员换服务商再次入厂时，上一次入厂生成的车间级培训还是能够进行教育，能够打分，作业票能刷卡。'
+			};
+
 			var con = $("#container");
-			con.append(createPanel("container", 1, dataMap));
+			var panel = createPanel(con, dataMap);
+
+			var panelList = new Array();
+			panelList[0] = createInnerPanel(panel.attr('id'), dataMap1);
+			panelList[1] = createInnerPanel(panel.attr('id'), dataMap2);
+			panelList[2] = createInnerPanel(panel.attr('id'), dataMap3);
+			panelList[3] = createInnerPanel(panel.attr('id'), dataMap4);
+			var divGroup = createDivGroup(panel, panelList);
+			appendInChild(panel.attr('id').replace('div_panel_', 'div_panel_body_'), '', '', divGroup, panel);
+			con.append(panel);
+			
+			var menuJson='[{"menus":{"baidu":"www.baidu.com","163":"www.163.com"}}]';
+			
+			var menu=createNavGroup(con,menuJson);
+			con.append(menu);
 
 		}
 	</script>
 
-	<body>
+	<style type="text/css">
+		.row {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		
+		.row>[class*='col-'] {
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
+
+	<body id="body">
+	
+		
+		
 		<div class="container" id="container">
 			<div class="panel panel-primary ">
 
 				<div class="panel-heading">
+					<button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+
 					<a class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+
 						<h3 class="panel-title">
 					
 						标题
 					</h3>
 					</a>
+
 				</div>
 
 				<div id="collapseTwo" class="panel-collapse collapse">
