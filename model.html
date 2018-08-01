@@ -53,9 +53,9 @@
 			appendInChild(panel.attr('id').replace('div_panel_', 'div_panel_body_'), '', '', divGroup, panel);
 			con.append(panel);
 			
-			var menuJson='[{"menus":{"baidu":"www.baidu.com","163":"www.163.com"}}]';
+			var menuJson='[{"menus":[{"title":"baidu","herf":"www.baidu.com","other":"","styleType":""},{"title":"163","herf":"www.163.com","other":"","styleType":""}]}]';
 			
-			var menu=createNavGroup(con,menuJson);
+			var menu=createNavGroup(menuJson);
 			con.append(menu);
 
 		}
