@@ -6,6 +6,7 @@
 		<title></title>
 		<link href="css/login.css" rel="stylesheet" type="text/css" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 		<link href="css/font.css" rel="stylesheet" type="text/css" />
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -27,42 +28,42 @@
 				margin-right: 8px;
 				margin-top: 14px;
 			}
+			
+			.start-menu {
+				min-width: 350px;
+				background-color: rgb(255, 255, 255);
+			}
+			
+			.menu-left-group {
+				background-color: rgba(45, 45, 45, 0.7);
+			}
 		</style>
 	</head>
 
 	<body>
 
-		<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+		<nav class="navbar  navbar-default navbar-fixed-bottom" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
+							<a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown">
+								<span class="glyphicon  icon-inbox"></span>
 							</a>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">jmeter</a>
-								</li>
-								<li>
-									<a href="#">EJB</a>
-								</li>
-								<li>
-									<a href="#">Jasper Report</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="#">分离的链接</a>
-								</li>
-								<li class="divider"></li>
-								<li>
-									<a href="#">另一个分离的链接</a>
-								</li>
-							</ul>
+							<div class="dropdown-menu start-menu">
+								<div class="btn-lg">
+									<span class="glyphicon   icon-off"></span>
+
+								</div>
+								<div class="menu-left-group">
+
+								</div>
+							</div>
 						</li>
 					</ul>
 				</div>
 				<div>
+
 					<!--向左对齐-->
 					<ul class="nav navbar-nav navbar-left">
 						<li class="dropdown">
@@ -98,9 +99,9 @@
 					</form>
 
 					<button type="button" class="btn btn-default navbar-btn navbar-right">
-          <span class="glyphicon glyphicon-home"></span>
-        </button>
-					<p class="navbar-text navbar-right">   </p>
+          				<span class="glyphicon glyphicon-home"></span>
+        			</button>
+					<p class="navbar-text navbar-right"> </p>
 					<!--
 	作者：offline
 	时间：2018-07-31

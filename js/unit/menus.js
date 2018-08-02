@@ -7,7 +7,7 @@ function createNavGroup(data) {
 
 	var divMenuId = 'DIV_MENU';
 
-	var nav = createNav(navId, 'navbar navbar-inverse navbar-fixed-bottom', '', '', '');
+	var nav = createNav(navId, 'navbar  navbar-default navbar-fixed-bottom', '', '', '');
 	var divContainer = createDiv(divContainerId, 'container-fluid', '', '', '');
 
 	var divMenu = createDiv(divMenuId, 'navbar-header', '', '', '');
