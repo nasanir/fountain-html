@@ -307,3 +307,12 @@ function createNav(id,
 	otherType(nav, context, styleType, other);
 	return nav;
 }
+	
+function createFontBtn(parentid,font,type,style){
+	var BtnID=parentid+font+'_BTN';
+	var Btn=createButton(BtnID,'btn btn-default '+type,'button','',style,'');
+	var SpanID=parentid+font+'_SPAN';
+	var Span=createSpan(SpanID,'glyphicon '+font,'','','');
+	Btn.append(Span);
+	return Btn;
+}

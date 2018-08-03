@@ -30,7 +30,7 @@
 			}
 			
 			.start-menu {
-				border:0px;
+				border: 0px;
 				padding: 0px;
 				min-width: 320px;
 				min-height: 550px;
@@ -38,10 +38,26 @@
 			}
 			
 			.menu-left-group {
+				padding: 5px;
 				width: 15%;
 				height: 550px;
 				background-color: rgb(225, 225, 225);
-				border-radius:0px;
+				border-radius: 0px;
+			}
+			
+			.menu-left-top {
+				height: 448px;
+				
+			}
+			
+			.menu-left-mid {
+				margin-top: 5px;
+				height: 33px;
+			}
+			
+			.menu-left-bot {
+				margin-top: 5px;
+				height: 33px;
 			}
 		</style>
 	</head>
@@ -56,10 +72,25 @@
 							<a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown">
 								<span class="glyphicon  icon-inbox"></span>
 							</a>
+							
+							
 							<div class="dropdown-menu start-menu">
-								<div class="btn-lg  menu-left-group">
-									<span class="glyphicon   icon-off"></span>
-
+								<div class="menu-left-group">
+									
+									<div class="menu-left-top"></div>
+										<div class="menu-left-mid">
+										<button type="button" class="btn btn-default ">
+          				<span class="glyphicon   icon-cog"></span>
+        			</button></div>
+									
+									<div class="menu-left-bot">
+										<button type="button" class="btn btn-default" style="color: #b01c20;">
+          				<span class="glyphicon   icon-off"></span>
+        			</button>
+									</div>
+									
+									
+								
 								</div>
 								<div class="">
 

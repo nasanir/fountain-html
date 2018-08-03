@@ -1,5 +1,5 @@
 function createNavGroup(data) {
-	var objJson=jsonToObject(data);
+	
 
 
 	var navId = 'NAV';
@@ -12,24 +12,64 @@ function createNavGroup(data) {
 
 	var divMenu = createDiv(divMenuId, 'navbar-header', '', '', '');
 
-	var jsonMenuData = jsonToObject('[{"title":"MENU","herf":"#","other":{"data-toggle":"dropdown"},"styleType":""}]');
-	var menu = createMenuLine('',divMenu, jsonMenuData, 'nav navbar-nav', 'dropdown', 'dropdown-toggle');
-	var menuLiId = menu.attr('id').replace('_ul', '_ul_li0');
-	var menuLineData = objJson[0].menus;
-	var menuLine = createMenuLine(menuLiId,'', menuLineData, 'dropdown-menu', '', '');
-	appendInChild(menuLiId, '', '', menuLine, menu);
+	var startMenu=createStartMenu();
+	
 
 	var homeBtn=createHomeBtn();
 	var blank=createBlank(divContainer);
 	var messageBtn=createMessageBtn();
 	
-	divMenu.append(menu);
+	divMenu.append(startMenu);
 	divContainer.append(divMenu);
 	divContainer.append(homeBtn);
 	divContainer.append(blank);
 	divContainer.append(messageBtn);
 	nav.append(divContainer);
 	return nav;
+}
+
+function createStartMenu(){
+	var startDiv=createStartDiv();
+	
+	var startSpanID='MENU_START_SPAN';
+	var startSpan=createSpan(startSpanID,'glyphicon  icon-inbox','','','');
+	
+	var jsonMenuData = jsonToObject('[{"title":"","herf":"#","other":{"data-toggle":"dropdown"},"styleType":""}]');
+	var startMenu = createMenuLine('DIV_MENU','', jsonMenuData, 'nav navbar-nav', 'dropdown', 'dropdown-toggle btn-lg');
+	var startMenuLiAId = startMenu.attr('id').replace('_ul', '_ul_li0_a');
+	var startMenuLiId = startMenu.attr('id').replace('_ul', '_ul_li0');
+	appendInChild(startMenuLiAId, '', '', startSpan, startMenu);
+	appendInChild(startMenuLiId, '', '', startDiv, startMenu);
+	return startMenu;
+}
+
+function createStartDiv(){
+	var divMenuPlaneId="MENU_START_PLANE_DIV";
+	var divMenuPlaneLeftGroupId="MENU_START_PLANE_LEFT_GROUP_DIV";
+	
+	var divLeftTopId="MENU_START_PLANE_LEFT_TOP";
+	var divLeftMidId="MENU_START_PLANE_LEFT_MID";
+	var divLeftBotId="MENU_START_PLANE_LEFT_BOT";
+	
+	var divMenuPlane = createDiv(divMenuPlaneId, 'dropdown-menu start-menu', '', '', '');
+	var divMenuPlaneLeftGroup = createDiv(divMenuPlaneLeftGroupId, 'menu-left-group', '', '', '');
+	
+	var divLeftTop = createDiv(divLeftTopId, 'menu-left-top', '', '', '');
+	var divLeftMid = createDiv(divLeftMidId, 'menu-left-mid', '', '', '');
+	var divLeftBot = createDiv(divLeftBotId, 'menu-left-bot', '', '', '');
+	
+	var closeBtn=createFontBtn(divLeftBotId,'icon-off','','color: #b01c20');
+	var cogBtn=createFontBtn(divLeftMidId,'icon-cog','','');
+	
+	divLeftBot.append(closeBtn);
+	divLeftMid.append(cogBtn);
+	
+	divMenuPlaneLeftGroup.append(divLeftTop);
+	divMenuPlaneLeftGroup.append(divLeftMid);
+	divMenuPlaneLeftGroup.append(divLeftBot);
+	
+	divMenuPlane.append(divMenuPlaneLeftGroup);
+	return divMenuPlane;
 }
 
 function createMenuLine(id, parent, data, ulClass, liClass, aClass) {
